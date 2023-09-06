@@ -1,4 +1,3 @@
-# chembiosys_metaG_workshop_2023
 # ChemBioSys/AquaDiva "Genome-resolved metagenomics workshop" 2023
 
 ## ❗Disclaimer
