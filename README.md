@@ -1,4 +1,4 @@
- ChemBioSys/AquaDiva "Genome-resolved metagenomics workshop" 2023
+# ChemBioSys/AquaDiva "Genome-resolved metagenomics workshop" 2023
 
 ## ❗Disclaimer
 This repository includes the material used for the mentioned workshop and explains how thw workshop was prepared (used resources, used tools, ...).
