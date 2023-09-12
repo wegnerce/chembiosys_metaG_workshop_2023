@@ -45,34 +45,23 @@ The workshop comprises in total X blocks:
 * 00 Set-up and basic command-line usage
 * 01 Sequence data quality control and quality assessment
 * 02 Taxonomic profiling, coverage estimation, metagenome assembly and binning
-* ...
+* 03 Phylogenetics/-genomics and pangenomics
+* 04 Functional analysis focussing on biosynthetic gene clusters
 
 For each of the blocks we have prepared one `jupyter notebook`. All the tools needed were available through `virtual environments` managed through [`conda`](https://github.com/conda/conda). 
 
 Used tools:
 * ...
 
-The setup of the different virtual environments is outlined below.
-We generally used [`mamba`](https://github.com/mamba-org/mamba) as dropin replacement for `conda`.
+Environment files for all used `conda` environments can be found in `conda_envs`. We generally recommend to use [`mamba`](https://github.com/mamba-org/mamba) as dropin replacement for `conda`. 
 
-#### Virtual environment "qaqc"
+#### Example for setting up one of the needed environments
 ```
-mamba create -n qaqc -c bioconda fastqc quast
-```
-
-#### Virtual environment "tax_cov"
-```
-mamba create -n qaqc -c bioconda kaiju nonpareil
-```
-
-#### Virtual environment "assembly_binning"
-`metawrap` includes most of the software we need for this part of the workshop. It was installed as outlined [here](https://github.com/bxlab/metaWRAP).
-```
-mamba create -y --name assembly_binning --channel ursky metawrap-mg=1.3.2
+mamba env create -f path/to/environment.yml
 ```
 
 #### Virtual environment "anvio"
-`anvio` was installed and set up as outlined [here](https://anvio.org/install/).
+Setting up `anvio` is a bit more laborious, we followed the instructions provided [here](https://anvio.org/install/).
 
 :copyright: Anan Ibrahim, Zander Human, Carl-Eric Wegner 2023
 
