@@ -63,5 +63,90 @@ mamba env create -f path/to/environment.yml
 #### Virtual environment "anvio"
 Setting up `anvio` is a bit more laborious, we followed the instructions provided [here](https://anvio.org/install/).
 
+## 🔍 You want to use the workshop material?!
+No problem, you only need to meet a couple of pre-requisites:
+
+* You need access to a system (local or remote) running Linux or Apple (running Linux makes you a better person, it is good for your karma!🙏).
+* You need to set-up `jupyterlab`, including the `bash kernel` mentioned above.
+* Set-up the needed `conda environments`, see above.
+* Download the mock data.
+
+### Setting up JupyterLab
+OK, let's do this. In the following we assume you a Linux-based system _locally_:
+
+```
+### We will set up jupyterlab using mamba
+mamba create -n jupyterlab -c conda-forge juypterlab
+### We activate the environment and install the bash kernel 
+pip install bash_kernel
+python -m bash_kernel.install
+conda deactivate
+### 
+```
+Once `jupyterlab` is installed, we can run it in the background using `screen`:
+
+```
+### Run jupyterlab in the background
+screen -S jupyterlab
+### New prompt shows up
+conda activate jupyterlab
+jupyter lab
+### jupyterlab should open in your browser!
+### you can disconnect from the screen by
+### pressing CTRL+A+D
+```
+
+Needed `conda` environments can be installed now as described above.
+
+#### Running Jupyterlab on a remote machine
+You want to run the material on a remote server? In that case, you set up `jupyterlab` the same way, but on your remote machine. You now need to factor in that your remote machine does not come with a graphical user interface. Therefore, when you connect, you need to actviate port forwarding, so that the output from `juypterlab` is forwarded to your local machine that you use for accessing the remote machine. In the example below we use port `8888`. You can imagine ports as access points that allow communication between machines.
+
+```
+### Connect with port forwarding
+ssh -L 8888:localhost:8888 user@remote_machine
+### Run jupyterlab in the background
+screen -S jupyterlab
+### New prompt shows up
+conda activate jupyterlab
+jupyter lab
+### You should see text output, your remote
+### machine comes usually with no browser.
+### Open Jupyterlab locally in your browser:
+### http://localhost:8888/lab
+### Use the 'token' shown in the text output
+### on the remote machine for logging in and
+### define a password for future use.
+### You are all set now!
+### you can disconnect from the screen by
+### pressing CTRL+A+D
+```
+
+### Download the mock data and the notebooks
+The mock data sets (currently only for the first sessions) are availabe from `zenodo`, the `juypter notebooks` are available via this repository.
+
+Download the data/notebooks onto the machine that is running `juypterlab`.
+
+```
+### Download the notebooks
+git clone https://github.com/wegnerce/chembiosys_metaG_workshop_2023
+wget ...
+### unpack the downloaded data from zenodo, and move the two folders into
+### chembiosys_metaG_workshop_2023
+mv 00_READS chembiosys_metaG_workshop_2023
+mv 01_QAQC chembiosys_metaG_workshop_2023
+cd chembiosys_metaG_workshop_2023
+### check the structure of the folder
+tree -L 1 ./
+### it should look like this
+├── 00_READS
+├── 01_QAQC
+├── conda_envs
+├── LICENSE
+├── README.md
+└── jupyter_notebooks
+```
+
+With this, you should be all set.
+
 :copyright: Anan Ibrahim, Zander Human, Carl-Eric Wegner 2023
 
