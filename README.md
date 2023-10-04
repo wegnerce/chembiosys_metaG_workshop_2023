@@ -129,11 +129,11 @@ Download the data/notebooks onto the machine that is running `juypterlab`.
 ```
 ### Download the notebooks
 git clone https://github.com/wegnerce/chembiosys_metaG_workshop_2023
-wget ...
+wget https://zenodo.org/record/8406888/files/chembiosys_metaGWS_mock_data.tar.xz
 ### unpack the downloaded data from zenodo, and move the two folders into
 ### chembiosys_metaG_workshop_2023
-mv 00_READS chembiosys_metaG_workshop_2023
-mv 01_QAQC chembiosys_metaG_workshop_2023
+tar xvf chembiosys_metaGWS_mock_data.tar.xz
+mv chembiosys_metaGWS_mock_data/* chembiosys_metaG_workshop_2023
 cd chembiosys_metaG_workshop_2023
 ### check the structure of the folder
 tree -L 1 ./
