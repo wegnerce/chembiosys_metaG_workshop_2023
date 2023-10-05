@@ -50,8 +50,6 @@ The workshop comprises in total X blocks:
 
 For each of the blocks we have prepared one `jupyter notebook`. All the tools needed were available through `virtual environments` managed through [`conda`](https://github.com/conda/conda). 
 
-Used tools:
-* ...
 
 Environment files for all used `conda` environments can be found in `conda_envs`. We generally recommend to use [`mamba`](https://github.com/mamba-org/mamba) as dropin replacement for `conda`. 
 
@@ -66,13 +64,13 @@ Setting up `anvio` is a bit more laborious, we followed the instructions provide
 ## 🔍 You want to use the workshop material?!
 No problem, you only need to meet a couple of pre-requisites:
 
-* You need access to a system (local or remote) running Linux or Apple (running Linux makes you a better person, it is good for your karma!🙏).
+* You need access to a system (local or remote) running Linux or MacOS (running Linux makes you a better person, it is good for your karma!🙏).
 * You need to set-up `jupyterlab`, including the `bash kernel` mentioned above.
 * Set-up the needed `conda environments`, see above.
 * Download the mock data.
 
 ### Setting up JupyterLab
-OK, let's do this. In the following we assume you a Linux-based system _locally_:
+OK, let's do this. In the following we assume you run a Linux-based system _locally_:
 
 ```
 ### We will set up jupyterlab using mamba
@@ -146,7 +144,13 @@ tree -L 1 ./
 └── jupyter_notebooks
 ```
 
-With this, you should be all set.
+Please note that some of the used tools require certain DBs:
+
+* [`kaiju`](https://kaiju.binf.ku.dk/server) » we used the 2021 release of refseq [LINK](https://kaiju-idx.s3.eu-central-1.amazonaws.com/2021/kaiju_db_refseq_2021-02-26.tgz) 
+* [`checkm`](https://github.com/Ecogenomics/CheckM) » `checkm` was set up for being used with [`metawrap`](https://github.com/bxlab/metaWRAP), we followed these instructions: [LINK](https://github.com/bxlab/metaWRAP/blob/master/installation/database_installation.md) 
+* [`gtdbtk`](https://ecogenomics.github.io/GTDBTk/installing/bioconda.html#step-3-download-and-alias-the-gtdb-tk-reference-data) » we used release r207_v2 [LINK](https://data.gtdb.ecogenomic.org/releases/release207/207.0/auxillary_files/gtdbtk_r207_v2_data.tar.gz)
+
+With this you should be all set.
 
 :copyright: Anan Ibrahim, Zander Human, Carl-Eric Wegner 2023
 
